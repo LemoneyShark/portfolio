@@ -8,7 +8,7 @@ export default function Education() {
     <section className="py-20 px-6 md:px-24 text-white border-t border-gray-900">
         
         <div className="text-center mb-16">
-        <h2 className="text-4xl md:text-5xl font-bold">Education & Activities</h2>
+        <h2 className="text-4xl md:text-5xl font-bold">Education & Hobby</h2>
         <p className="text-gray-500 mt-4">All projects</p>
       </div>
 
@@ -46,7 +46,7 @@ export default function Education() {
         {/* --- ฝั่งขวา: กิจกรรม & ตัวตน --- */}
         <div>
           <h3 className="text-2xl font-bold flex items-center gap-2 mb-8 text-red-400">
-            <Trophy /> Out of Coding
+            <Trophy /> Hobby
           </h3>
 
           <div className="space-y-6">
@@ -59,10 +59,9 @@ export default function Education() {
                 🏀
               </div>
               <div>
-                <h4 className="font-bold">Basketball Athlete</h4>
+                <h4 className="font-bold">Basketball</h4>
                 <p className="text-sm text-gray-400 mt-1">
-                  University Team Player (Swingman position). 
-                  Learning discipline, quick decision making, and teamwork.
+                  Instilling discipline, understanding of the game, and teamwork.
                 </p>
               </div>
             </motion.div>
@@ -72,14 +71,13 @@ export default function Education() {
                whileHover={{ scale: 1.02 }}
                className="bg-gray-900/50 p-5 rounded-xl border border-gray-800 flex gap-4 items-start"
             >
-              <div className="bg-red-900/30 p-3 rounded-lg text-red-400">
-                <Users size={20} />
+              <div className="bg-orange-900/30 p-3 rounded-lg text-orange-400">
+                💪
               </div>
               <div>
-                <h4 className="font-bold">Volunteer Coding Mentor</h4>
+                <h4 className="font-bold">Weight Training</h4>
                 <p className="text-sm text-gray-400 mt-1">
-                  Teaching basic HTML/CSS to students. 
-                  Passionate about sharing knowledge and building tech communities.
+                  Focused on strength, mobility, and consistency through structured training.
                 </p>
               </div>
             </motion.div>

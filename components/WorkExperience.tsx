@@ -12,13 +12,13 @@ const projects = [
     title: "Thesis : Application for Banana Species Identification",
     description: "Web application built with Flutter, Lite to identify banana species in real-time.",
     icon: <FileText className="text-red-500" size={32} />, // icon
-    gradient: "from-yellow-900 to-gray-900", // Card background gradient
+    gradient: "from-red-900 to-gray-900", // Card background gradient
   },
   {
-    title: "Insect Battle Board Game",
+    title: "Internship : Botnoi Consulting",
     description: "Strategic auto-battler mechanics design featuring insects like Beetles and Bees.",
-    icon: <FileText className="text-red-500" size={32} />, // icon
-    gradient: "from-red-900 to-gray-900", // Card background gradient
+    icon: <Bot className="text-blue-500" size={32} />, // icon
+    gradient: "from-blue-900 to-gray-900", // Card background gradient
   },
 ];
 
@@ -73,7 +73,7 @@ export default function WorkExperience() {
             </p>
 
             {/* ปุ่ม Learn More */}
-            <a href="https://banana-split-a2a48.web.app/" className="flex items-center gap-2 text-sm font-bold text-red-400 uppercase tracking-wider group-hover:gap-4 transition-all">
+            <a href="https://banana-split-a2a48.web.app/" className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-wider group-hover:gap-4 transition-all">
               Learn More <ArrowRight size={16} />
             </a>
 

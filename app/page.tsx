@@ -1,9 +1,8 @@
 "use client"; // บรรทัดนี้สำคัญมาก! บอก Next.js ว่าหน้านี้มีการใช้ State และ Animation
 
-import { useState } from "react"; // เรียกใช้ State เพื่อจำการคลิก
+import { useState ,useEffect} from "react"; // เรียกใช้ State เพื่อจำการคลิก
 import Image from "next/image";
-import { MoveLeft } from "lucide-react";
-import { motion } from "framer-motion"; // เรียกใช้ Framer Motion
+import { motion,AnimatePresence} from "framer-motion"; // เรียกใช้ Framer Motion
 import { Download } from "lucide-react";
 
 // นำเข้า Component ย่อย
@@ -13,6 +12,23 @@ import Education from "../components/Education";
 export default function Home() {
   // --- STATE ---
   const [isFlipped, setIsFlipped] = useState(false);
+
+  // --- Text Rotator Logic ---
+  const roles = [
+    "Full-Stack Developer",
+    "Mobile App Developer",
+    "Penguin"
+  ];
+  
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % roles.length);
+    }, 5000);
+
+    return () => clearInterval(interval); // ล้าง Timer เมื่อปิดหน้าเว็บ
+  }, []);
 
   // ฟังก์ชันสำหรับสลับด้านเมื่อคลิก
   const handleFlip = () => {
@@ -82,13 +98,28 @@ export default function Home() {
 
           {/* หัวข้อใหญ่ */}
           <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Hi, I'm Peerapat. <br />
+            Hi, I'm Phiraphat. <br />
             {/* เทคนิคทำวงกลมล้อมรอบคำ */}
           </h1>
-          {/* ส่วนพิมพ์ดีด (Typewriter Effect แบบบ้านๆ) */}
-          <div className="pt-5">
-            <h3 className="text-4xl font-bold">
-             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400">Full-Stack Developer</span>
+
+          {/* ส่วนข้อความเปลี่ยนอัตโนมัติ */}
+          <div className="pt-5 h-20"> {/* กำหนดความสูง h-20 เพื่อไม่ให้บรรทัดขยับเวลาข้อความเปลี่ยน */}
+            <h3 className="text-4xl font-bold flex flex-col md:flex-row gap-2">
+              <span>I'm a</span>
+              
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={index} // key เปลี่ยน = react รู้ว่าเป็นตัวใหม่
+                  initial={{ y: 20, opacity: 0 }} // เริ่ม: ลอยจากข้างล่าง จางๆ
+                  animate={{ y: 0, opacity: 1 }}  // จบ: เข้าที่ ชัดเจน
+                  exit={{ y: -20, opacity: 0 }}   // ออก: ลอยขึ้นไปข้างบน จางหาย
+                  transition={{ duration: 1, ease: "easeInOut" }}
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-400 block"
+                >
+                  {roles[index]}
+                </motion.span>
+              </AnimatePresence>
+              
             </h3>
           </div>
 
